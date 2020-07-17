@@ -45,6 +45,7 @@ function checkSpeed(speed) {
 //if even -> number 'EVEN'
 //if odd -> number 'ODD'
 
+//mysolution
 showNumbers(10);
 
 function showNumbers(limit) {
@@ -60,4 +61,58 @@ function showNumbersVersionTwo(limit) {
     const message = i % 2 === 0 ? "EVEN" : "ODD";
     console.log(i, message);
   }
+}
+
+//Count Truthy
+//Write a function which takes an array and returns a number
+//  of truthy elements in the array
+
+//my solution
+const array = [0, null, undefined, "", 1, 2, 3];
+console.log(countTruthy(array));
+function countTruthy(array) {
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i]) count++;
+  }
+  return count;
+}
+
+//other solution: using FOR...OF LOOP
+
+function countTruthyVersionTwo(array) {
+  let count = 0;
+  for (let value of array) {
+    if (value) count++;
+  }
+  return count;
+}
+
+//Show Properties
+//Create a function that takes an obj and display  all the
+// properties of the obj that are of type string
+const movie = {
+  title: "a",
+  releaseYear: 2018,
+  rating: 4.5,
+  director: "b",
+};
+
+console.log(showProperties(movie));
+
+function showProperties(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "string") console.log(key, obj[key]);
+  }
+}
+
+//Sum of Multiples of 3 and 5
+//Write a function that takes a limit and returns the sum of all the multiples of 3 and 5
+console.log(sum(10));
+
+function sum(limit) {
+  let sum = 0;
+  for (let i = 0; i <= limit; i++) if (i % 3 === 0 || i % 5 === 0) sum += i;
+
+  return sum;
 }
