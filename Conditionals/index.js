@@ -116,3 +116,53 @@ function sum(limit) {
 
   return sum;
 }
+
+//GRADE
+//Create a function that calculate average of the given array and
+// return the corresponding grade of the computed average
+// 1-59 : F
+// 60-69 : D
+// 70-79 : C
+// 80-89 : B
+// 90-100 : A
+const marks = [80, 80, 50];
+console.log(calculateGrade(marks));
+
+function calculateGrade(marks) {
+  const average = calculateAverage(marks);
+  if (average < 60) return "F";
+  if (average < 70) return "D";
+  if (average < 80) return "C";
+  if (average < 90) return "B";
+  return "A";
+}
+
+function calculateAverage(array) {
+  let sum = 0;
+  //use for...of loop to iterate items
+  for (let value of array) sum += value;
+  return sum / array.length;
+}
+
+//STARS
+//Create a function star with a parameter rows and display a star
+// depends on the given row
+// 1 row - *
+// 2 row - ** and so on...
+
+showStars(5);
+//mySolution
+function showStars(rows) {
+  let star = "";
+  for (let i = 1; i <= rows; i++) console.log((star += "*"));
+}
+
+//other solution; using nested loop
+showStarsTwo(5);
+function showStarsTwo(rows) {
+  for (let row = 1; row <= rows; row++) {
+    let pattern = "";
+    for (let i = 0; i < row; i++) pattern += "*";
+    console.log(pattern);
+  }
+}
