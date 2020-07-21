@@ -20,3 +20,19 @@ function includes(array, searhElement) {
 }
 
 console.log(includes(numbers, 4));
+
+//Write a function that takes an array and another array(in this array, we can add
+// the values we want to be excluded from the original array)
+// returns a new array without the values that we have passed.
+
+const numbers1 = [1, 2, 3, 4];
+
+const output = except(numbers1, [1, 2]);
+console.log(output);
+
+function except(array, excluded) {
+  let output = [];
+  for (let element of array)
+    if (!excluded.includes(element)) output.push(element);
+  return output;
+}
