@@ -80,3 +80,54 @@ function countOccurences(array, searchElement) {
     return accumulator + occurrence;
   }, 0);
 }
+
+//Create a function getMax that takes an array
+// and returns the largest number in the array
+// implement it first in the simplest you know then try to use reduce after.
+
+const numbers4 = [1, 2, 3, 4, 5];
+const max = getMax(numbers4);
+console.log(max);
+
+// function getMax(array) {
+//   if(array.length === 0) return undefined;
+//   let max = array[0];
+//   for (let element of array) if (element >= max) max = element;
+//   return max;
+// }
+
+//Using reduce
+function getMax(array) {
+  if (array.length === 0) return undefined;
+
+  return array.reduce((accumulator, current) => {
+    return accumulator > current ? accumulator : current;
+  });
+}
+
+//the cleaner code version
+// function getMax(array) {
+//   if (array.length === 0) return undefined;
+//   return array.reduce((a, b) => a > b ? a : b);
+// }
+
+//Movies
+const movies = [
+  { title: "a", year: 2018, rating: 4.5 },
+  { title: "b", year: 2018, rating: 4.7 },
+  { title: "c", year: 2018, rating: 3 },
+  { title: "d", year: 2017, rating: 4.5 },
+];
+
+//Get all movies in 2018 with rating > 4
+//Sort them by their rating
+//Descending order
+//Pick their title and display it in the console.
+
+const titles = movies
+  .filter((m) => m.year === 2018 && m.rating >= 4)
+  .sort((a, b) => a.rating - b.rating)
+  .reverse()
+  .map((m) => m.title);
+
+console.log(titles);
