@@ -36,3 +36,23 @@ function except(array, excluded) {
     if (!excluded.includes(element)) output.push(element);
   return output;
 }
+
+//Write a function called move, and use it to move an element in an array
+// takes a parameters of an array, index of an element we want to move and an offset.
+
+const numbers2 = [1, 2, 3, 4];
+const output2 = move(numbers2, 0, 2);
+console.log(output2);
+
+function move(array, index, offset) {
+  const position = index + offset;
+  if (position >= array.length || position < 0) {
+    console.error("Invalid offset");
+    return;
+  }
+
+  const output = [...array];
+  const element = output.splice(index, 1)[0];
+  output.splice(position, 0, element);
+  return output;
+}
