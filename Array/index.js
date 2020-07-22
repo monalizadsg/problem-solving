@@ -56,3 +56,27 @@ function move(array, index, offset) {
   output.splice(position, 0, element);
   return output;
 }
+
+//Create a function called count occurences
+// It takes an array and search element
+// and returns the number of times that search element has occured in the array
+// implement it first in the simplest you know then try to use reduce after.
+
+const numbers3 = [1, 2, 3, 4, 1];
+const count = countOccurences(numbers3, 1);
+console.log(count);
+
+// function countOccurences(array, searchElement) {
+//   let count = 0;
+//   for (let element of array) if (element === searchElement) count++;
+//   return count;
+// }
+
+//Using reduce
+function countOccurences(array, searchElement) {
+  return array.reduce((accumulator, current) => {
+    const occurrence = current === searchElement ? 1 : 0;
+    // console.log(accumulator, current, searchElement);
+    return accumulator + occurrence;
+  }, 0);
+}
