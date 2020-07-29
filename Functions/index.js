@@ -11,7 +11,7 @@ console.log(sum([1, 2, 3, 4]));
 
 // Create a circle object using the object literal syntax.
 // circle.radius = 2
-// circle.area = 20 ; should be read only.
+// circle.area = 20 ; should be read only. cannot be changed.
 
 const circle = {
   radius: 1,
@@ -21,3 +21,20 @@ const circle = {
 };
 
 console.log(circle.area);
+
+//In countOccurrence exercise, modify the function and add error handling
+try {
+  const numbers3 = true;
+  const count = countOccurences(numbers3, 1);
+  console.log(count);
+} catch (e) {
+  console.log(e);
+}
+
+function countOccurences(array, searchElement) {
+  if (!Array.isArray(array)) throw new Error("Invalid array");
+  return array.reduce((accumulator, current) => {
+    const occurrence = current === searchElement ? 1 : 0;
+    return accumulator + occurrence;
+  }, 0);
+}
